@@ -1,15 +1,17 @@
 ﻿program zad19;
-var x,a,b,c,d:int64;
+var x,a,b,c:int64;
 begin
   writeln('введите четырехзначное число');
   readln(x);
-  a:=x div 1000;
-  b:=x mod (1000) div (100);
-  c:=x mod (100) div (10);
-  d:=x mod 10;
-  if a=d then begin
-    if b=c then write('число палендром')
-    else write('число не палендром');
+  a:=x;
+  b:=0;
+  c:=0;
+  while a > 0 do
+  begin
+    b:=a mod 10;
+    c:=c*10+b;
+    a:=a div 10;
   end;
-   else write('число не палендром');
+  if c=x then write('число палиндром')
+  else write('число не палиндром')
 end.
